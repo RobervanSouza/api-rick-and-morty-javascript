@@ -1,1 +1,1 @@
-# api-rick-and-mortin-javascript
+# api-rick-and-morty-javascript
