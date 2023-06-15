@@ -10,7 +10,7 @@ form label {
 .styled {
   display: flex;
   text-align: left;
-  width: 80%;
+  max-width: 574px;
   margin: auto;
   margin-top: 30px;
   border-radius: 20px;
@@ -18,7 +18,18 @@ form label {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   box-sizing: border-box;
 }
-
+@media screen and (max-width: 720px){
+  div{
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 320px){
+  div{
+    display: none;
+  }
+}
 img {
   max-height: 200px;
   padding-right: 20px;

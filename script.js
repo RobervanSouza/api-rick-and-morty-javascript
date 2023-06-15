@@ -19,23 +19,50 @@ const fetchApi = (id) => { // o fetch pega os daddos da api e da a rsposta then
 }
 
 const array = ['name', 'status', 'species', 'gender', 'origin', 'episode' ];
-
+ const nomes= {
+    name: 'Nome',
+    status: 'Status',
+    species: 'Especies',
+    gender: 'Genero',
+    origin: 'Planeta de origin',
+    episode: 'Episodios',
+ }
 const resultado = (result) => {
-    return array.map((key) => document.getElementById(key))// cria novo array 
-    .map((elementos) => {
-        if(elementos.checked && Array.isArray(result[elementos.name]) === true ){
-            const newElement = document.createElement('p');
-            newElement.innerHTML = ` ${elementos.name}  : ${result[elementos.name]}`;
-            content.appendChild(newElement);
-        }else 
-        if(elementos.checked && typeof(result[elementos.name]) !== 'object' ){
-            const newElement = document.createElement('p');
-            newElement.innerHTML = ` ${elementos.name}  : ${result[elementos.name]}`;
-            content.appendChild(newElement);
-        }
-    })
-    
+    // Cria um novo array mapeando cada elemento do array original
+    return array.map((key) => document.getElementById(key))
+        .map((elementos) => {
+            // Verifica se o elemento está marcado e se o valor correspondente no objeto 'result' é um array
+            if (elementos.checked === true && (Array.isArray(result[ elementos.name ])) === true) {
+                // Converte os valores do array em uma string com quebras de linha após cada valor separado por vírgula
+                const arrayResult = result[ elementos.name ].join('\r\n');
+                // Cria um novo elemento <p>
+                const newElement = document.createElement('p');
+                // Define o HTML interno do elemento <p> com o nome e os valores do array
+                newElement.innerHTML = ` ${nomes[ elementos.name ]}  : ${arrayResult}`;
+                // Anexa o novo elemento <p> ao elemento 'content'
+                content.appendChild(newElement);
+            }
+            // Verifica se o elemento está marcado e se o valor correspondente no objeto 'result' é um objeto
+            else if (elementos.checked === true && (elementos.name === 'origin')) {
+                // Cria um novo elemento <p>
+                const newElement = document.createElement('p');
+                // Define o HTML interno do elemento <p> com o nome e a propriedade 'name' do objeto aninhado
+                newElement.innerHTML = ` ${nomes[ elementos.name ]}  : ${result[ elementos.name ].name}`;
+                // Anexa o novo elemento <p> ao elemento 'content'
+                content.appendChild(newElement);
+            }
+            // Verifica se o elemento está marcado e se o valor correspondente no objeto 'result' não é um objeto
+            else if (elementos.checked && typeof (result[ elementos.name ]) !== 'object') {
+                // Cria um novo elemento <p>
+                const newElement = document.createElement('p');
+                // Define o HTML interno do elemento <p> com o nome e o valor
+                newElement.innerHTML = ` ${nomes[ elementos.name ]}   : ${result[ elementos.name ]}`;
+                // Anexa o novo elemento <p> ao elemento 'content'
+                content.appendChild(newElement);
+            }
+        })
 }
+
 
 /*
  if(elementos.checked && typeof(result[elementos.name]) !== 'object' );// faz um map nos que foi selecionado e cria um novo objeto so com os que foram checados
@@ -59,3 +86,5 @@ btnOk.addEventListener('click', async  (event) =>{
     }
 
 })
+
+resetar.addEventListener('click', () => location.reload())
