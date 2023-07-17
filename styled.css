@@ -116,11 +116,11 @@ img {
   gap: 3rem;
 }
 section.form{
-  background-color: #858181;
+  
   width: 46%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 20px;
+  border: 9px solid #ccc;
+  border-radius: 15px;
   flex: 1; 
   margin-left: 10px; 
 
