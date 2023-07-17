@@ -3,30 +3,30 @@ const btnOk = document.getElementById('btn-go');// start a função
 const content = document.getElementById('content');// para aparece o objeto
 const imagem = document.getElementById('img');
 const resetar = document.getElementById('btn-reset');
-const children = document.getElementById('styled') 
+const children = document.getElementById('styled')
 
 
 const fetchApi = (id) => { // o fetch pega os daddos da api e da a rsposta then
     const result = fetch(`https://rickandmortyapi.com/api/character/${id}`)
-    .then((resp) => resp.json())// pegoa todos os dados
-    .then((data) =>{
-        
-        return data;
-       });// entrega o object
-       
-    
+        .then((resp) => resp.json())// pegoa todos os dados
+        .then((data) => {
+
+            return data;
+        });// entrega o object
+
+
     return result;
 }
 
-const array = ['name', 'status', 'species', 'gender', 'origin', 'episode' ];
- const nomes= {
+const array = [ 'name', 'status', 'species', 'gender', 'origin', 'episode' ];
+const nomes = {
     name: 'Nome',
     status: 'Status',
     species: 'Especies',
     gender: 'Genero',
     origin: 'Planeta de origin',
     episode: 'Episodios',
- }
+}
 const resultado = (result) => {
     // Cria um novo array mapeando cada elemento do array original
     return array.map((key) => document.getElementById(key))
@@ -67,20 +67,20 @@ const resultado = (result) => {
 /*
  if(elementos.checked && typeof(result[elementos.name]) !== 'object' );// faz um map nos que foi selecionado e cria um novo objeto so com os que foram checados
 */
-btnOk.addEventListener('click', async  (event) =>{
+btnOk.addEventListener('click', async (event) => {
     event.preventDefault();// pega o id digitado  e faz o evento
-    if(characterId.value === ''){
-        return content.innerHTML= "Digite algun numero"
+    if (characterId.value === '') {
+        return content.innerHTML = "Digite algum numero"
     }
     const resultadoApi = await fetchApi(characterId.value) // pega o personagem pelo id
-  
+
     if (content.firstChild === null) {// primeiro filho para que não repita
-    children.className= 'styled'
+        children.className = 'styled'
         imagem.src = `${resultadoApi.image}`// se tiver filho
         resultado(resultadoApi);
     } else {
         content.innerHTML = '';// se ja tiver personagem selecionado não cira novamente
-          children.className = 'styled'
+        children.className = 'styled'
         imagem.src = `${resultadoApi.image}`
         resultado(resultadoApi);
     }

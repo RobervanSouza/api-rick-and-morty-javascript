@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,43 +9,48 @@
     <link rel="shortcut icon" href="./assets/logo.jpg" type="image/x-icon">
     <title>Rick and Morty</title>
 </head>
+
 <body>
     <h1>Api Rick and Morty</h1>
-    <form action="" method="get">
-        <h2>Busca personagem pelo ID</h2>
-        <label for="characterId">ID do personagem</label>
-        <input type="number" name="characterId" id="characterId">
-        <hr>
-        <h2>Informações</h2>
-        <label for="name">Nome</label>
-        <input type="checkbox" name="name" id="name">
+    <section class="geral">
+        <section class="form">
+            <form action="" method="get">
+                <h2>Busca personagem pelo ID</h2>
+                <label for="characterId">ID do personagem</label>
+                <input type="number" name="characterId" id="characterId">
+                <hr>
+                <h2>Informações</h2>
+                <label for="name">Nome</label>
+                <input type="checkbox" name="name" id="name">
 
-        <label for="status">Status</label>
-        <input type="checkbox" name="status" id="status">
+                <label for="status">Status</label>
+                <input type="checkbox" name="status" id="status">
 
-        <label for="species">Espécie</label>
-        <input type="checkbox" name="species" id="species">
+                <label for="species">Espécie</label>
+                <input type="checkbox" name="species" id="species">
 
-        <label for="gender">Gênero</label>
-        <input type="checkbox" name="gender" id="gender">
+                <label for="gender">Gênero</label>
+                <input type="checkbox" name="gender" id="gender">
 
-        <label for="origin">Planeta Origem</label>
-        <input type="checkbox" name="origin" id="origin">
+                <label for="origin">Planeta Origem</label>
+                <input type="checkbox" name="origin" id="origin">
 
-       
+                <label for="episode">Episodios</label>
+                <input type="checkbox" name="episode" id="episode">
+                <hr>
 
-        <label for="episode">Episodios</label>
-        <input type="checkbox" name="episode" id="episode">
-        <hr>
-
-        <button type="submit" id="btn-go">Pesquisar</button>
-        <button type="reset" id="btn-reset">Limpar</button>
-    </form>
-    <div id="styled">
-
-        <img src="" alt="" id="img">
-        <div  class="card" id="content"></div>
-    </div>
+                <button type="submit" id="btn-go">Pesquisar</button>
+                <button type="reset" id="btn-reset">Limpar</button>
+            </form>
+        </section>
+        <section class="card-geral">
+            <div id="styled">
+                <img src="" alt="" id="img">
+                <div class="card" id="content"></div>
+            </div>
+        </section>
+    </section>
 </body>
-<script src="./script.js" ></script>
+<script src="./script.js"></script>
+
 </html>
